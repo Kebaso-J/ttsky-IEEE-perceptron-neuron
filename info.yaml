@@ -3,12 +3,14 @@ project:
   title:        "1-bit Perceptron - Hardware Neuron"   
   author:       "Jacob Kirera"    
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "A single artificial neuron (perceptron) implemented in pure combinational logic. Four binary inputs are each multiplied by a 2-bit weight, summed in an adder tree, and compared to a configurable threshold. The neuron fires (output = 1) when the weighted sum meets or exceeds the threshold.This is the fundamental building block of every neural network — on real
+    silicon. Weights and threshold are set live via input pins, making it
+    fully reconfigurable without re-synthesis."    
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  tiles: "1x1"         
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_IEEE_perceptron"
