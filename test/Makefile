@@ -33,6 +33,7 @@ endif
 
 # Allow sharing configuration between design and testbench via `include`:
 COMPILE_ARGS 		+= -I$(SRC_DIR)
+export PATH := $(PWD)/.venv/bin:$(PATH)
 
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
@@ -41,5 +42,12 @@ TOPLEVEL = tb
 # List test modules to run, separated by commas and without the .py suffix:
 COCOTB_TEST_MODULES = test
 
+# Resolve cocotb-config from PATH first, then from the Tiny Tapeout venv.
+COCOTB_CONFIG ?= $(firstword $(shell command -v cocotb-config 2>/dev/null) $(PWD)/.venv/bin/cocotb-config /ttsetup/venv/bin/cocotb-config)
+
+ifeq ($(wildcard $(COCOTB_CONFIG)),)
+$(error cocotb-config not found. Activate the Tiny Tapeout venv or install cocotb so test/requirements.txt is available.)
+endif
+
 # include cocotb's make rules to take care of the simulator setup
-include $(shell cocotb-config --makefiles)/Makefile.sim
+include $(shell $(COCOTB_CONFIG) --makefiles)/Makefile.sim

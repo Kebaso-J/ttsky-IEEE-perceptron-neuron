@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
+  title:        "1-bit Perceptron - Hardware Neuron"   
+  author:       "Jacob Kirera"    
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  ""      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
@@ -11,7 +11,7 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_IEEE_perceptron"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -23,34 +23,34 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "x0 — binary input 0"
+  ui[1]: "x1 — binary input 1"
+  ui[2]: "x2 — binary input 2"
+  ui[3]: "x3 — binary input 3"
+  ui[4]: "w0[0] — weight 0, bit 0"
+  ui[5]: "w0[1] — weight 0, bit 1"
+  ui[6]: "w1[0] — weight 1, bit 0"
+  ui[7]: "w1[1] — weight 1, bit 1"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "y — neuron output (1=fires, 0=silent)"
+  uo[1]: "sum[0] — weighted sum bit 0 (debug)"
+  uo[2]: "sum[1] — weighted sum bit 1 (debug)"
+  uo[3]: "sum[2] — weighted sum bit 2 (debug)"
+  uo[4]: "sum[3] — weighted sum bit 3 (debug)"
+  uo[5]: "unused"
+  uo[6]: "unused"
+  uo[7]: "unused"
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  # Bidirectional pins(extra inputs)
+  uio[0]: "w2[0] — weight 2, bit 0"
+  uio[1]: "w2[1] — weight 2, bit 1"
+  uio[2]: "w3[0] — weight 3, bit 0"
+  uio[3]: "w3[1] — weight 3, bit 1"
+  uio[4]: "thresh[0] — threshold bit 0"
+  uio[5]: "thresh[1] — threshold bit 1"
+  uio[6]: "unused"
+  uio[7]: "unused"
 
 # Do not change!
 yaml_version: 6
